@@ -16,19 +16,19 @@ const aboutHandler = () => {
 };
 
 const routeSets = [{
-    pathname: '/',
+    pathname: '/router.js/',
     name: 'home',
     callback: homeHandler,
 }, {
-    pathname: '/posts',
+    pathname: '/router.js/posts',
     name: 'posts',
     callback: postsHandler,
 }, {
-    pathname: '/post/:id',
+    pathname: '/router.js/post/:id',
     name: 'post',
     callback: showPost,
 }, {
-    pathname: '/about',
+    pathname: '/router.js/about',
     name: 'about',
     callback: aboutHandler,
 }];
@@ -111,7 +111,6 @@ function runCallbackByPath(pathname, needPushState = true) {
 window.addEventListener('popstate', (e) => {
     const previousPath = e.state.pathname;
 
-    console.log(previousPath);
     runCallbackByPath(previousPath, false);
 });
 

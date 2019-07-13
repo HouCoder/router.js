@@ -15,7 +15,6 @@
         /**
          * @typedef {Object} routeConfig
          * @property {String}           pathname Pathname.
-         * @property {String}           name     Routename.
          * @property {routingCallback}  callback Routing callback.
          */
 
@@ -143,7 +142,6 @@
             if (needPushState) {
                 history.pushState({
                     pathname: pathname,
-                    name: routeConfig.name,
                 }, null, pathname);
             }
         }

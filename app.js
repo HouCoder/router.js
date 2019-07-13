@@ -43,19 +43,15 @@ const aboutHandler = () => {
 
 const routeSets = [{
     pathname: '/',
-    name: 'home',
     callback: homeHandler,
 }, {
     pathname: '/posts',
-    name: 'posts',
     callback: postsHandler,
 }, {
     pathname: '/post/:user/:title',
-    name: 'post',
     callback: showPost,
 }, {
     pathname: '/about',
-    name: 'about',
     callback: aboutHandler,
 }];
 

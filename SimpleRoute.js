@@ -31,7 +31,7 @@
             this.bindEvents();
 
             // Run for initial page
-            this.runCallbackByPathname(location.pathname);
+            this.runCallbackByPathname(location.pathname, 'replaceState');
         }
 
         /**
@@ -39,9 +39,11 @@
          */
         bindEvents() {
             window.addEventListener('popstate', (e) => {
-                const previousPathname = e.state.pathname;
+                if (e.state) {
+                    const previousPathname = e.state.pathname;
 
-                this.runCallbackByPathname(previousPathname, false);
+                    this.runCallbackByPathname(previousPathname);
+                }
             });
 
             // Register link events
@@ -50,7 +52,7 @@
                 const $a = $(e.target);
                 const routerPath = $a.attr('href').trim();
 
-                this.runCallbackByPathname(routerPath);
+                this.runCallbackByPathname(routerPath, 'pushState');
             });
         }
 
@@ -134,13 +136,13 @@
          * @param {String} pathname       Pathname.
          * @param {Boolean} needPushState Need to run history.pushState or not.
          */
-        runCallbackByPathname(pathname, needPushState = true) {
+        runCallbackByPathname(pathname, action) {
             const routeConfig = this.getRouteConfigByPathname(pathname);
 
             routeConfig.callback(routeCallbackParameters);
 
-            if (needPushState) {
-                history.pushState({
+            if (action) {
+                history[action]({
                     pathname: pathname,
                 }, null, pathname);
             }

@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>A simple JS route example</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .content {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
@@ -13,49 +18,21 @@
             <nav class="navbar navbar-inverse navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand spa-route" href="/router.js/">Home</a>
+                        <a class="navbar-brand spa-route" href="/">Home</a>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="spa-route" href="/router.js/posts">Posts</a></li>
-                        <li><a class="spa-route" href="/router.js/about">About</a></li>
+                        <li><a class="spa-route" href="/posts">Posts</a></li>
+                        <li><a class="spa-route" href="/about">About</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </div>
     <div class="container content">
+        <div class="spa-content"></div>
     </div>
-
-    <script id="home" type="text/template">
-        <h1>Hello, welcome to my homepage!</h1>
-    </script>
-    <script id="posts" type="text/template">
-        <ul>
-            <li>
-                <a class="spa-route" href="/router.js/post/how-to-make-money">How to make money💰💲</a>
-            </li>
-            <li>
-                <a class="spa-route" href="/router.js/post/how-to-make-a-nice-cake">How to make a nice cake🍰</a>
-            </li>
-            <li>
-                <a class="spa-route" href="/router.js/post/who-is-sam">Who is Sam🐷?</a>
-            </li>
-        </ul>
-    </script>
-    <script id="post-how-to-make-money" type="text/template">
-        <p>You're viewing how to make money.</p>
-    </script>
-    <script id="post-how-to-make-a-nice-cake" type="text/template">
-        <p>You're viewing how to make a nice cake.</p>
-    </script>
-    <script id="post-who-is-sam" type="text/template">
-        <p>He is a nice person.</p>
-    </script>
-    <script id="about" type="text/template">
-        <p>I'm a web developer in Shanghai.</p>
-    </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./router.js"></script>
+    <script src="./SimpleRoute.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>

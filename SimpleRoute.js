@@ -38,12 +38,10 @@
          * Register popstate and link clicking events.
          */
         bindEvents() {
-            window.addEventListener('popstate', (e) => {
-                if (e.state) {
-                    const previousPathname = e.state.pathname;
+            window.addEventListener('popstate', () => {
+                const previousPathname = window.location.pathname;
 
-                    this.runCallbackByPathname(previousPathname);
-                }
+                this.runCallbackByPathname(previousPathname);
             });
 
             // Register link events
@@ -142,9 +140,7 @@
             routeConfig.callback(routeCallbackParameters);
 
             if (action) {
-                history[action]({
-                    pathname: pathname,
-                }, null, pathname);
+                history[action]({}, null, pathname);
             }
         }
     }
